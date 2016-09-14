@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 
-#include<iostream>
-
 using namespace std;
 
 //inclusive of startIndex and endIndex
@@ -10,7 +8,6 @@ int* createNewArr(int* arr, int* newArray, int startIndex, int endIndex) {
   if(endIndex < startIndex)
     return NULL;
 
-//  int* newArray = new int[endIndex - startIndex + 1];
   int newIndex = 0;
 
   for(int i = startIndex; i <= endIndex; i++) {
@@ -41,11 +38,12 @@ int returnIndex(int* arr, int n, int size) {
 
   printArray(arr, size);
 
+  //if current array is a singleton
   if(size == 1) {
-    if(arr[0] != n)
-      return -1;
-    else
+    if(arr[0] == n)
       return 0;
+    else
+      return -1; //element not found
   }
 
   if(arr[middle] == n) {
@@ -59,15 +57,24 @@ int returnIndex(int* arr, int n, int size) {
     index = returnIndex(createNewArr(arr, newArr, newStartIndex, newEndIndex), n, newEndIndex - newStartIndex + 1);
     
     delete[] newArr;
+
+    if(index == -1)
+      return -1;
+
   } else if(arr[middle] < n) {//if halfway is smaller than n
     newStartIndex = middle + 1;
     newEndIndex = size - 1;
 
     newArr = new int[newEndIndex - newStartIndex + 1];
-
-    index = middle + 1 + returnIndex(createNewArr(arr, newArr, newStartIndex, newEndIndex), n, newEndIndex - newStartIndex + 1);
-
+    
+    index = returnIndex(createNewArr(arr, newArr, newStartIndex, newEndIndex), n, newEndIndex - newStartIndex + 1);
+    
     delete[] newArr;
+
+    if(index == -1)
+      return -1;
+    else
+      index += middle + 1;
   }
 
   return index;
@@ -94,7 +101,7 @@ int main(void) {
   int index = returnIndex(arr, element, size);
 
   if(index == -1) {
-    printf("Integer not found.");
+    printf("Integer not found.\n\n");
   } else {
     printf("Integer found in index [%d]\n\n", index);
   }
