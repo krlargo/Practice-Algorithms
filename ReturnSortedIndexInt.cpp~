@@ -29,7 +29,7 @@ int returnIndex(int* arr, int n) {
   } else if(arr[(int)ceil(size / 2)] >  n) {//if halfway is bigger than n
     answer = returnIndex(createNewArr(arr, 0, (int)ceil(size/2) - 1), n);
   } else if(arr[(int)ceil(size / 2)] < n) {//if halfway is smaller than n
-    answer = returnIndex(createNewArr(arr, (int)ceil(size/2) + 1, size - 1), n);
+    answer = returnIndex(createNewArr(arr, (int)ceil(size/2) + 1, size - 1));
   } else {
     return -1; //integer not found
   }
