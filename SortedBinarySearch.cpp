@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 
-using namespace std;
-
 //inclusive of startIndex and endIndex
 int* createNewArr(int* arr, int* newArray, int startIndex, int endIndex) {
   if(endIndex < startIndex)
@@ -87,6 +85,11 @@ int main(void) {
   int size;
   printf("Number of elements in array: ");
   scanf("%d", &size);
+
+  if(size <= 0) {
+    printf("Array is empty.\n\n");
+    return 0;
+  }
 
   int arr[size];
 
