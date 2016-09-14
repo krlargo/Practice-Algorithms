@@ -96,6 +96,6 @@ int main(void) {
   if(index == -1) {
     printf("Integer not found.");
   } else {
-    printf("Integer found in index [%d]\n\n", index);
+    printf("[%d]\n\n", index);
   }
 }
