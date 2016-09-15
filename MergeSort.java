@@ -3,9 +3,12 @@ import java.util.*;
 
 public class MergeSort {
   private static int size = 10;
-  private static int[] arr = new int[]{2, 4, 6, 8, 10, 1, 3, 5, 7, 9};
+  private static int[] arr = new int[]{54, 72, 1, 24, 56, 78, 15, 76, 8, 10};
 
   private static void printArray(int arr[], int size) {
+    if(size == 0)
+      return;
+
     for(int i = 0; i < size; i++) {
       if(i == 0)
         System.out.print("{");
@@ -26,6 +29,11 @@ public class MergeSort {
   }
 
   private static void mergeSort(int arr[], int size) {
+    if(size == 0) {
+      System.out.println("Array has no elements.");
+      return;
+    }
+
     if(size == 1)
       return;
 
@@ -42,12 +50,31 @@ public class MergeSort {
 
     mergeSort(left, leftSize);
     mergeSort(right, rightSize);
+
+
+    int i = 0, j = 0, k = 0;
+    for(k = 0; k < size && (!(i == leftSize || j == rightSize)); k++) {
+      if(left[i] < right[j])
+        arr[k] = left[i++];
+      else
+        arr[k] = right[j++];
+    }
+
+    if(i == leftSize) {
+      while(j != rightSize)
+        arr[k++] = right[j++];
+    } else if(j == rightSize) {
+      while(i != leftSize)
+        arr[k++] = left[i++];
+    }
   }
 
   public static void main(String[] args) {
     printArray(arr, size);
 
     mergeSort(arr, size);
+
+    printArray(arr, size);
   }
 
 }
