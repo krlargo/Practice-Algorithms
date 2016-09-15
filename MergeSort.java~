@@ -17,8 +17,38 @@ public class MergeSort {
     System.out.println("}");
   }
 
+  //inputs start and end refer to index
+  private static int fillArray(int source[], int dest[], int startIndex, int endIndex) {
+    int i, j = startIndex;
+    for(i = 0; i < endIndex - startIndex + 1; i++)
+      dest[i] = source[j++];
+
+    return i;
+  }
+
+  private static void mergeSort(int arr[], int size) {
+    if(size == 1)
+      return;
+
+    int middle = size / 2;
+
+    int[] left = new int[middle];
+    int[] right = new int[size - middle];
+
+    int leftSize = fillArray(arr, left, 0, middle - 1);
+    int rightSize = fillArray(arr, right, middle, size - 1);
+
+    printArray(left, leftSize);
+    printArray(right, rightSize);
+
+    mergeSort(left, leftSize);
+    mergeSort(right, rightSize);
+  }
+
   public static void main(String[] args) {
     printArray(arr, size);
+
+    mergeSort(arr, size);
   }
 
 }
