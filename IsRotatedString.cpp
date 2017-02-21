@@ -19,5 +19,14 @@ int main(int argv, char** argc) {
 
 	getUserInputs(str1, str2);
 
-	cout << "str1: " << str1 << ", str2: " << str2 << endl;
+	//append str1 to itself; this will guarantee
+	//that all possible rotations are substrings
+	string concat = str1 + str1;
+
+	//if npos, no match
+	if(concat.find(str2, 0) == string::npos || str1.length() != str2.length()) {
+		cout << "String 1 isn't a rotation of string 2" << endl;
+  } else {
+		cout << "String 1 is a rotation of string 2" << endl;
+  }
 }
