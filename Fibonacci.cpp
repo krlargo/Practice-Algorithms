@@ -22,8 +22,30 @@ void iterativeFibonacci(int n) {
 	cout << endl;
 }
 
-void recursiveFibonacci(int a, int b, int n) {
+void recursiveHelper(int a, int b, int n) {
+	//unwind condition
+	if(n <= 0) {
+		return;
+  }
 
+	//recursive action
+	int c = a + b;
+	cout << c << " ";
+
+	//recursion
+	recursiveHelper(b, c, n - 1);
+}
+
+
+void recursiveFibonacci(int n) {
+  int a = 0, b = 1;
+  n -= 2;
+ 
+  cout << a << " " << b << " ";
+
+  recursiveHelper(a, b, n);
+
+	cout << endl;
 }
 
 int main(int argv, char** argc) {
@@ -32,6 +54,6 @@ int main(int argv, char** argc) {
 	cout << "Show sequence up to which term?" << endl;
 	cin >> term;
 
-	iterativeFibonacci(term);
-	//recursiveFibonacci();
+	//iterativeFibonacci(term);
+	recursiveFibonacci(term);
 }
