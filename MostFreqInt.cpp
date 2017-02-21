@@ -1,8 +1,9 @@
 //"Find the most frequent integer in an array"
 
-#include<iostream>
-#include<unordered_map>
-#include<utility> //pair
+#include <iostream>
+#include <unordered_map>
+#include <utility> //pair
+#include <vector>
 
 using namespace std;
 
@@ -33,12 +34,12 @@ void printArray(int* arr, int length) {
 
 int main(int argc, char** argv) {
 	unordered_map<int, int> hashtable;
+	vector<int> modeVector;
 	int length;
-	int mode, modeCount = 0;
+	int modeCount = 0;
 
 	//prompt user input	
   int* arr = getUserInput(length);
-	printArray(arr, length); 	
 
 	//for each element in array
 	for(int i = 0; i < length; i++) {
@@ -50,13 +51,36 @@ int main(int argc, char** argv) {
 			unordered_map<int, int>::iterator it = hashtable.find(arr[i]);
 			it->second += 1;
 
+			//if greater count, assign new mode
 			if(it->second > modeCount) {
-        mode = it->first;
+        //mode = it->first;
+
+				//empty mode vector
+				modeVector.clear();
+				modeVector.push_back(it->first);
+
 				modeCount = it->second;
       }
+			//if equal count, append tie
+			else if(it->second == modeCount) {
+				modeVector.push_back(it->first);
+			}
 	  }
   }
 
-	cout << "Mode: " << mode << endl;
+	//print out results
+	if(modeVector.size() == 0) {
+		cout << "No mode; all elements have same frequency." << endl;
+		return 0;
+	} else if(modeVector.size() == 1) {
+		cout << "Mode: " << *modeVector.begin() << endl;
+	} else {
+		cout << "Modes: ";
+		vector<int>::iterator i;
+		for(i = modeVector.begin(); i != modeVector.end(); ++i) {
+      cout << *i << " ";
+    }
+		cout << endl;
+  }
   cout << "Number of recurrences: " << modeCount << endl;	
 }
