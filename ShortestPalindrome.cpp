@@ -23,26 +23,30 @@ string findShortestPalindrome(string input) {
 
 	int first = 0;
 	int last = input.length()-1;
-	int size = input.length(); //start at full length
+	int substrSize = input.length(); //start at full length
 
-	while(size > first) {
+	while(substrSize > first) {
 
-		cout << input.substr(last-size+1, size) << endl;
-		cout << reverse.substr(first, size) << endl << endl;
+		cout << input.substr(last-substrSize+1, substrSize) << endl;
+		cout << reverse.substr(first, substrSize) << endl << endl;
 
 		//if rhs input substr = lhs reverse substr
-		if(input.substr(last-size+1, size) == reverse.substr(first, size)) {
-			cout << "largest substr is " << reverse.substr(first, size) << endl;
+		if(input.substr(last-substrSize+1, substrSize) == reverse.substr(first, substrSize)) {
 			break;
     }
-		size--;   
+		substrSize--;   
   }
+
+	input += reverse.substr(substrSize,last-substrSize+1);
 
   return input;
 }
 
 int main(int argv, char** argc) {
 	string input, palindrome;
+
 	getUserInput(input);
 	palindrome = findShortestPalindrome(input);
+
+	cout << "Shortest Palindrome: " << palindrome << endl;
 }
