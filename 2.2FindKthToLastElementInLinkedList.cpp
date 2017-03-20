@@ -34,8 +34,6 @@ void createLinkedList(Node* head, int size) {
 int findKthToLastElement(Node* current, int& k, int& answer) {
 	if(current != NULL) {
 		findKthToLastElement(current->next, k, answer);	
-		
-		cout << "k: " << k << "; " << current->data << endl;
 
 		if(k == 0) //only update answer at kth element
 			answer = current->data;
