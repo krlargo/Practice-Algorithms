@@ -2,64 +2,48 @@
 
 using namespace std;
 
-class Node {
-public:
-	int data;
-	Node* next = NULL;
+struct Node {
+	Node* next;
+	int value;
 
-	Node(int d) {
-		data = d;
-	}	
-
-	void appendNode(int d) {
-		Node* current = this;
-
-		while(current->next != NULL) {
-			current = current->next; //increment
-		}
-
-		current->next = new Node(d);
+	Node(int value) {
+		this->value = value;
 	}
 };
 
-void createLinkedList(Node* head, int size) {
-	Node* current = head;
+void removeKthToLastNode(Node* node, int k, int &answer) {
+	if(!node)
+		return;	
 
-	for(int i = 1; i < size; i++) {
-		current->next = new Node(i);
-		current = current->next;
-	}
-}
+	removeKthToLastNode(node->next, k, answer);
 
-int findKthToLastElement(Node* current, int& k, int& answer) {
-	if(current != NULL) {
-		findKthToLastElement(current->next, k, answer);	
+	if(k == 0)
+		answer = node->value;
 
-		if(k == 0) //only update answer at kth element
-			answer = current->data;
-		k--;
-	}
-	return answer;
-}
-
-void printLinkedList(Node* head) {
-	Node* current = head;
-
-	while(current != NULL) {
-		cout << current->data << " ";
-		current = current->next;
-	}
-
-	cout << endl;
+	k--;	
 }
 
 int main(int argv, char** argc) {
 	Node* head = new Node(0);
-	createLinkedList(head, 10);
-	printLinkedList(head);
+	Node* n1 = new Node(1);	
+	Node* n2 = new Node(2);
+	Node* n3 = new Node(3);
+	Node* n4 = new Node(4);
+	Node* n5 = new Node(5);
+	Node* n6 = new Node(6);
+	Node* n7 = new Node(7);
 
-	int k = 3;
+	head->next = n1;
+	n1->next = n2;
+	n2->next = n3;
+	n3->next = n4;
+	n4->next = n5;
+	n5->next = n6;
+	n6->next = n7;
+
 	int answer = 0;
 
-	cout << findKthToLastElement(head, k, answer) << endl;				
+	//removeKthToLastNode(head,3,answer);
+
+	cout << answer << endl;
 }
