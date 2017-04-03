@@ -52,7 +52,7 @@ Node* sumLinkedLists(Node* n1, Node* n2) {
 
 		int value = (v1 + v2 + carryOver) % 10;
 
-		if(v1 + v2 >= 10)
+		if(v1 + v2 + carryOver >= 10)
 			carryOver = 1;
 		else
 			carryOver = 0;
@@ -61,7 +61,6 @@ Node* sumLinkedLists(Node* n1, Node* n2) {
 			n3 = new Node(value);
 			answer = n3;
 		} else {
-
 			n3->next = new Node(value);
 			n3 = n3->next;
 		}
@@ -71,16 +70,22 @@ Node* sumLinkedLists(Node* n1, Node* n2) {
 		if(n2) n2 = n2->next;
 	}
 
+	if(carryOver != 0)
+		n3->next = new Node(carryOver);
+
 	return answer;
 }
 
 int main(int argv, char** argc) {
-	int num1[3] = {8,9,1}; //198
-	int num2[3] = {4,3,2}; //234
-	Node* head1 = createLinkedList(num1, 3);
+	int num1[4] = {3,9,7,8}; //8793
+	int num2[3] = {8,3,5}; //538
+	Node* head1 = createLinkedList(num1, 4);
 	Node* head2 = createLinkedList(num2, 3);
 
 	Node* answer = sumLinkedLists(head1, head2);
-	
+	printLinkedList(head1);
+	cout << "+" << endl;
+	printLinkedList(head2);
+	cout << endl;	
 	printLinkedList(answer);	
 }
