@@ -86,6 +86,6 @@ int main(int argv, char** argc) {
 	printLinkedList(head1);
 	cout << "+" << endl;
 	printLinkedList(head2);
-	cout << endl;	
+	cout << "------" << endl;	
 	printLinkedList(answer);	
 }
