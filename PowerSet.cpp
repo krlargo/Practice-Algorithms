@@ -4,64 +4,41 @@
 
 using namespace std;
 
-vector<char> getUserInput() {
-	int count;
-	vector<char> set;
+vector<int> getUserInput() {
+	int size;
+	cout << "Number of elements in array: ";
+	cin >> size;
 
-	cout << "Number of elements in array:" << endl;
-	cin >> count;
-
-	cout << "Enter " << count << " elements:" << endl;
-
-	while(count > 0) {
-		char element;
-		cin >> element;
-
-		set.push_back(element);
-		count--;
+	vector<int> arr;
+	cout << "Enter " << size << " elements." << endl;
+	for(int i = 0; i < size; i++) {
+		int input;
+		cin >> input;
+		arr.push_back(input);
 	}
 
-	return set;
+	return arr;
 }
 
-vector<vector<char> > getPowerSet(vector<char> set) {
-	int powerSetSize = pow(2,set.size());
+void printPowerset(vector<int> arr) {
+	int powersetSize = pow(2, arr.size());
+	cout << "{";
 
-	vector<vector<char> > powerSet;
+	for(int i = 0; i < powersetSize; i++) {
+		cout << "{ ";
 
-	//iterate through each combination of 0's and 1's
-	for(int i = 0; i < powerSetSize; i++) {
-		vector<char> subset;
-
-		//iterate through each bit
-		for(int j = 0; j < set.size(); j++) {
-			//if bits match, push to subset
-			if(i & (1 << j)) {
-				subset.push_back(set[j]);
-			}
+		// Increment through bits
+		for(int j = 0; j < arr.size(); j++) {
+			if(i & (1 << j))
+				cout << arr[j] << " ";
 		}
-
-			powerSet.push_back(subset);
+		cout << "}" << endl;
 	}
-
-	return powerSet;
-}
-
-void printPowerSet(vector<vector<char> > powerSet) {
-
-	for(int i = 0; i < powerSet.size(); i++) {
-		for(int j = 0; j < powerSet[i].size(); j++) {
-			cout << powerSet[i][j] << " ";	
-		}
-		cout << endl;
-	}
+	cout << "}";
 }
 
 int main(int argv, char** argc) {
-
-	vector<char> set = getUserInput();
-	vector<vector<char> > powerSet = getPowerSet(set);
-	printPowerSet(powerSet);
-
-	return 0;
+	vector<int> arr = getUserInput();
+	printPowerset(arr);
 }
+
