@@ -20,25 +20,41 @@ vector<int> getUserInput() {
 	return arr;
 }
 
-void printPowerset(vector<int> arr) {
-	int powersetSize = pow(2, arr.size());
-	cout << "{";
+vector<vector<int> > getPowerset(vector<int> arr) {
+	int powersetSize = pow(2,arr.size());
+	
+	vector<vector<int> > powerset;
 
 	for(int i = 0; i < powersetSize; i++) {
-		cout << "{ ";
+		vector<int> subset;
 
-		// Increment through bits
 		for(int j = 0; j < arr.size(); j++) {
-			if(i & (1 << j))
-				cout << arr[j] << " ";
+			if(i & (1 << j)) // indices match active bits
+				subset.push_back(arr[j]);
+		}
+
+		powerset.push_back(subset);
+	}
+	
+	return powerset;
+}
+
+void printPowerset(vector<vector<int> > powerset) {
+	cout << "{ " << endl;
+	for(int i = 0; i < powerset.size(); i++) {
+		vector<int> subset = powerset[i];
+		
+		cout << "{ ";
+		for(int j = 0; j < subset.size(); j++) {
+			cout << subset[j] << " ";
 		}
 		cout << "}" << endl;
 	}
-	cout << "}";
+	cout << "}" << endl;
 }
 
 int main(int argv, char** argc) {
 	vector<int> arr = getUserInput();
-	printPowerset(arr);
+	vector<vector<int> > powerset = getPowerset(arr);
+	printPowerset(powerset);
 }
-
