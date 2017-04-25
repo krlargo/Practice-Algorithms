@@ -21,22 +21,19 @@ vector<int> getUserInput() {
 }
 
 vector<vector<int> > getPowerset(vector<int> arr) {
-	int powersetSize = pow(2,arr.size());
-	
-	vector<vector<int> > powerset;
+	int powerSetSize = pow(2,arr.size());
+	vector<vector<int> > powerSet;
 
-	for(int i = 0; i < powersetSize; i++) {
+	for(int i = 0; i < powerSetSize; i++) {
 		vector<int> subset;
-
 		for(int j = 0; j < arr.size(); j++) {
-			if(i & (1 << j)) // indices match active bits
-				subset.push_back(arr[j]);
+			if(i & 1 << j)
+				subset.push_back(arr[j]);		
 		}
-
-		powerset.push_back(subset);
+		powerSet.push_back(subset);
 	}
-	
-	return powerset;
+
+	return powerSet;
 }
 
 void printPowerset(vector<vector<int> > powerset) {

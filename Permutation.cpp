@@ -8,14 +8,15 @@ void printArray(char arr[], int n) {
 	cout << endl;
 }
 
-void permute(char arr[], int i, int n) {
-	if(i == n-1) // Last element
-		printArray(arr, n);
-
-	for(int j = i; j < n; j++) {
-		swap(arr[i],arr[j]);
-		permute(arr,i+1,n);
-		swap(arr[i],arr[j]); // Swap back
+void permutation(char arr[], int j, int n) {
+	if(j == n-1)
+		printArray(arr,n);
+	else {
+		for(int i = j; i < n; i++) {
+			swap(arr[i],arr[j]);
+			permutation(arr,j+1,n);
+			swap(arr[i],arr[j]);
+		}
 	}
 }
 
@@ -31,6 +32,6 @@ int main(int argv, char** argc) {
     cin >> arr[i];
   }
 
-	permute(arr,0,n);
+	permutation(arr,0,n);
 }
 
