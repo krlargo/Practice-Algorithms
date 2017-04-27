@@ -1,65 +1,49 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
-void getUserInput(int* &arr, int &size) {
-	cout << "Size of array to sort: ";
-	cin >> size;
-	
-	arr = new int[size];
-	cout << "Enter " << size << " elements:" << endl;
-
-	for(int i = 0; i < size; i++) {
-		cin >> arr[i];	
-  }
-}
-
-void swap(int &a, int &b) {
-	int c;
-	c = a;
-	a = b;
-	b = c;
+void printArray(int arr[], int n) {
+	for(int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+	cout << endl;
 }
 
 void quicksort(int arr[], int left, int right) {
-	int pivot = (left + right)/2;
+	if(left >= right)
+		return;
+
 	int i = left, j = right;
+	int pivot = arr[(left+right)/2];
 
 	while(i <= j) {
-		//find first element LHS that's > pivot
-		while(arr[i] < arr[pivot])
-			i++;
-		//find first element RHS that's < pivot
-		while(arr[j] > arr[pivot])
-			j--;
-		//swap elements at indices i & j, increment both		
+		while(arr[i] < pivot) i++;
+		while(arr[j] > pivot) j--;
+
 		if(i <= j) {
-			swap(arr[i], arr[j]);
+			swap(arr[i],arr[j]);
 			i++;
-			j--;
+			j++;
 		}
-  }
+	}
 
-	if(left < j)
-		quicksort(arr,left,j);
-
-	if(right > i)
-		quicksort(arr,i,right);
-}
-
-void printArray(int arr[], int size) {
-	for(int i = 0; i < size; i++) {
-    cout << arr[i] << " ";
-  }
-  cout << endl;
+	quicksort(arr,left,j);
+	quicksort(arr,i,right);
 }
 
 int main(int argv, char** argc) {
-	int* arr;
-	int size;
+	int n;
+	cout << "How many elements in array?" << endl;
+	cin >> n;
+
+	int arr[n];
 	
-	getUserInput(arr,size);
-	quicksort(arr,0,size-1);
-	printArray(arr,size);
+	cout << "Enter " << n << " elements:" << endl;
+	for(int i = 0; i < n; i++) {
+		cin >> arr[i];
+	}
+
+	printArray(arr,n);
+
+	quicksort(arr,0,n);
+	printArray(arr,n);
 }

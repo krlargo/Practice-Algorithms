@@ -8,22 +8,18 @@ void printArray(int arr[], int n) {
 	cout << endl;
 }
 
-void bubblesort(int arr[], int n) {
+void bubbleSort(int arr[], int n) {
 	bool swapped = true;
-	int j = 0;
 
 	while(swapped) {
 		swapped = false;
-
-		j++;
-		for(int i = 0; i < n - j; i++) {
+		for(int i = 0; i < n-1; i++) {
 			if(arr[i] > arr[i+1]) {
-				swap(arr[i], arr[i+1]);
+				swap(arr[i],arr[i+1]);
 				swapped = true;
 			}
 		}
 	}
-
 }
 
 int main(int argv, char** argc) {
@@ -40,6 +36,6 @@ int main(int argv, char** argc) {
 
 	printArray(arr,n);
 
-	bubblesort(arr,n);
+	bubbleSort(arr,n);
 	printArray(arr,n);
 }

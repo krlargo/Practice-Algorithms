@@ -10,16 +10,15 @@ void printArray(int arr[], int n) {
 
 void selectionSort(int arr[], int n) {
 	for(int i = 0; i < n; i++) {
-		int min = arr[i];
-		int minIndex = i;
+		int min = i;
+
 		for(int j = i; j < n; j++) {
-			if(arr[j] < min) {
-				min = arr[j];
-				minIndex = j;
-			}
+			if(arr[j] < arr[min])
+				min = j;
 		}
-		swap(arr[i],arr[minIndex]);
-	}
+
+		swap(arr[i], arr[min]);
+	} 
 }
 
 int main(int argv, char** argc) {
