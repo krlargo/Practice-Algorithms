@@ -8,15 +8,13 @@ void printArray(int arr[], int n) {
 	cout << endl;
 }
 
-void recursivePermutation(int arr[], int i, int n) {
-	if(i >= n) {
+void permutation(int* arr, int i, int n) {
+	if(i == n)
 		printArray(arr,n);
-		return;
-	}
 
 	for(int j = i; j < n; j++) {
 		swap(arr[i],arr[j]);
-		recursivePermutation(arr,i+1,n);
+		permutation(arr,i+1,n);
 		swap(arr[i],arr[j]);
 	}
 }
@@ -34,7 +32,5 @@ int main(int argv, char** argc) {
 	}
 
 	printArray(arr,n);
-	cout << endl;
-
-	recursivePermutation(arr,0,n);
+	permutation(arr,0,n);
 }
