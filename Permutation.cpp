@@ -8,16 +8,14 @@ void printArray(int arr[], int n) {
 	cout << endl;
 }
 
-void permutation(int arr[], int i, int n) {
-	if(i >= n) {
+void permutation(int* arr, int i, int n) {
+	if(i == n)
 		printArray(arr,n);
-		return;
-	}
 
 	for(int j = i; j < n; j++) {
-		swap(arr[i], arr[j]);
-		permutation(arr, i+1, n);
-		swap(arr[i], arr[j]);
+		swap(arr[i],arr[j]);
+		permutation(arr,i+1,n);
+		swap(arr[i],arr[j]);
 	}
 }
 
@@ -34,6 +32,5 @@ int main(int argv, char** argc) {
 	}
 
 	printArray(arr,n);
-
 	permutation(arr,0,n);
 }

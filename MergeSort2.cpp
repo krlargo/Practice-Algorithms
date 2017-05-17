@@ -8,13 +8,24 @@ void printArray(int arr[], int n) {
 	cout << endl;
 }
 
+void merge(int*,int,int,int);
+
+void mergesort(int* a, int low, int high) {
+	int mid = (high+low)/2;
+	if(low < high) {
+		mergesort(a,low,mid);
+		mergesort(a,mid+1,high);
+		merge(a,low,mid,high);
+	}
+}
+
 void merge(int* a, int low, int mid, int high) {
 	int i = low, j = mid+1, k = low;
 	int b[high];
 
 	while(i <= mid && j <= high)
 		b[k++] = (a[i] < a[j]) ? a[i++] : a[j++];
-
+	
 	while(i <= mid)
 		b[k++] = a[i++];
 
@@ -23,15 +34,6 @@ void merge(int* a, int low, int mid, int high) {
 
 	for(i = low; i < k; i++)
 		a[i] = b[i];
-}
-
-void mergesort(int arr[], int low, int high) {
-  if(low < high) {
-    int mid = (high+low)/2;
-    mergesort(arr,low,mid);
-    mergesort(arr,mid+1,high);
-    merge(arr,low,mid,high);
-  }
 }
 
 int main(int argv, char** argc) {
@@ -47,7 +49,7 @@ int main(int argv, char** argc) {
 	}
 
 	printArray(arr,n);
-
+		
 	mergesort(arr,0,n-1);
 	printArray(arr,n);
 }

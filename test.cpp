@@ -8,18 +8,23 @@ void printArray(int arr[], int n) {
 	cout << endl;
 }
 
-void bubblesort(int* arr, int n) {
-	bool swapped = true;
-
-	while(swapped) {
-		swapped = false;
-		for(int i = 0; i < n-1; i++) {
-			if(arr[i] > arr[i+1]) {
-				swap(arr[i],arr[i+1]);
-				swapped = true;
+int removeDivisibleBy7(int* arr, int size) {
+	int index = 0, newSize = size;
+	bool shouldSwap = false;
+	for(int i = 0; i < size; i++) {
+		if(arr[i] % 7 == 0) {
+			if(!shouldSwap) {
+				index = i;
+				shouldSwap = true;
 			}
+			newSize--;
+		} else if(shouldSwap) {
+			swap(arr[i],arr[index]);
+			index++;
 		}
 	}
+
+	return newSize;
 }
 
 int main(int argv, char** argc) {
@@ -36,6 +41,6 @@ int main(int argv, char** argc) {
 
 	printArray(arr,n);
 
-	bubblesort(arr,n);
-	printArray(arr,n);
+	int newSize = removeDivisibleBy7(arr,n);
+	printArray(arr,newSize);	
 }

@@ -8,18 +8,25 @@ void printArray(int arr[], int n) {
 	cout << endl;
 }
 
-void bubblesort(int* arr, int n) {
-	bool swapped = true;
+void quicksort(int* a, int low, int high) {
+	if(low >= high)
+		return;
 
-	while(swapped) {
-		swapped = false;
-		for(int i = 0; i < n-1; i++) {
-			if(arr[i] > arr[i+1]) {
-				swap(arr[i],arr[i+1]);
-				swapped = true;
-			}
+	int pivot = a[(low+high)/2];
+	int i = low, j = high;
+
+	while(i <= j) {
+		while(a[i] < pivot) i++;
+		while(a[j] > pivot) j--;
+
+		if(i <= j) {
+			swap(a[i],a[j]);
+			i++; j--;
 		}
 	}
+
+	quicksort(a,low,j);
+	quicksort(a,i,high);
 }
 
 int main(int argv, char** argc) {
@@ -36,6 +43,6 @@ int main(int argv, char** argc) {
 
 	printArray(arr,n);
 
-	bubblesort(arr,n);
+	quicksort(arr,0,n-1);
 	printArray(arr,n);
 }
