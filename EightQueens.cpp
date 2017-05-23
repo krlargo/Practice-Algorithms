@@ -3,38 +3,32 @@
 
 using namespace std;
 
-bool isValid(vector<int> arr, int i) {
-	for(int j = 0; j < arr.size(); j++) {
-		if(arr[j] == i)
-			return false;
-		
-		int dist = abs(i - arr[j]);
-		if(arr[j]+dist == i && j+dist == arr.size())
-			return false;
-		if(arr[j]-dist == i && j+dist == arr.size())
-			return false;
-	} 
+bool isValid(vector<int> arr, int newCol) {
+	for(int row = 0; row < arr.size(); row++) {
+		// horizontal
+		if(arr[row] == newCol) return false;
 
+		// diagonal up
+		int newRow = arr.size();
+		if(abs(row - newRow) == abs(newCol - arr[row]))
+			return false;
+	}
 	return true;
 }
 
-bool recursive8Queens(vector<int>& arr) {
+void recursive8Queens(vector<int>& arr) {
 	if(arr.size() == 8)
-		return true;
-
+		return;
+	
 	for(int i = 0; i < 8; i++) {
 		if(!isValid(arr,i))
 			continue;
-		else
-			arr.push_back(i);		
-
-		if(recursive8Queens(arr))
-			return true;
-		
+		arr.push_back(i);
+		recursive8Queens(arr);
+		if(arr.size() == 8)
+			return;
 		arr.pop_back();
 	}
-
-	return false;
 }
 
 int main(int argv, char** argc) {
