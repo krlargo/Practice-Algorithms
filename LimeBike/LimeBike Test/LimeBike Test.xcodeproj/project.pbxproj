@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		387A57C01F8EC70200D0CB20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387A57BF1F8EC70200D0CB20 /* AppDelegate.swift */; };
+		387A57C21F8EC70200D0CB20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387A57C11F8EC70200D0CB20 /* ViewController.swift */; };
+		387A57C51F8EC70200D0CB20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387A57C31F8EC70200D0CB20 /* Main.storyboard */; };
+		387A57C81F8EC70200D0CB20 /* LimeBike_Test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 387A57C61F8EC70200D0CB20 /* LimeBike_Test.xcdatamodeld */; };
+		387A57CA1F8EC70200D0CB20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 387A57C91F8EC70200D0CB20 /* Assets.xcassets */; };
+		387A57CD1F8EC70200D0CB20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387A57CB1F8EC70200D0CB20 /* LaunchScreen.storyboard */; };
+		387A57D81F8EC70200D0CB20 /* LimeBike_TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387A57D71F8EC70200D0CB20 /* LimeBike_TestTests.swift */; };
+		387A57E31F8EC70200D0CB20 /* LimeBike_TestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387A57E21F8EC70200D0CB20 /* LimeBike_TestUITests.swift */; };
+		387A57F11F8EC71E00D0CB20 /* Item Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387A57F01F8EC71E00D0CB20 /* Item Counter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		387A57D41F8EC70200D0CB20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 387A57B41F8EC70200D0CB20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 387A57BB1F8EC70200D0CB20;
+			remoteInfo = "LimeBike Test";
+		};
+		387A57DF1F8EC70200D0CB20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 387A57B41F8EC70200D0CB20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 387A57BB1F8EC70200D0CB20;
+			remoteInfo = "LimeBike Test";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		387A57BC1F8EC70200D0CB20 /* LimeBike Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LimeBike Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		387A57BF1F8EC70200D0CB20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		387A57C11F8EC70200D0CB20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		387A57C41F8EC70200D0CB20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		387A57C71F8EC70200D0CB20 /* LimeBike_Test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LimeBike_Test.xcdatamodel; sourceTree = "<group>"; };
+		387A57C91F8EC70200D0CB20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		387A57CC1F8EC70200D0CB20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		387A57CE1F8EC70200D0CB20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		387A57D31F8EC70200D0CB20 /* LimeBike TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LimeBike TestTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		387A57D71F8EC70200D0CB20 /* LimeBike_TestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeBike_TestTests.swift; sourceTree = "<group>"; };
+		387A57D91F8EC70200D0CB20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		387A57DE1F8EC70200D0CB20 /* LimeBike TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LimeBike TestUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		387A57E21F8EC70200D0CB20 /* LimeBike_TestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeBike_TestUITests.swift; sourceTree = "<group>"; };
+		387A57E41F8EC70200D0CB20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		387A57F01F8EC71E00D0CB20 /* Item Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item Counter.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		387A57B91F8EC70200D0CB20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		387A57D01F8EC70200D0CB20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		387A57DB1F8EC70200D0CB20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		387A57B31F8EC70200D0CB20 = {
+			isa = PBXGroup;
+			children = (
+				387A57BE1F8EC70200D0CB20 /* LimeBike Test */,
+				387A57D61F8EC70200D0CB20 /* LimeBike TestTests */,
+				387A57E11F8EC70200D0CB20 /* LimeBike TestUITests */,
+				387A57BD1F8EC70200D0CB20 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		387A57BD1F8EC70200D0CB20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				387A57BC1F8EC70200D0CB20 /* LimeBike Test.app */,
+				387A57D31F8EC70200D0CB20 /* LimeBike TestTests.xctest */,
+				387A57DE1F8EC70200D0CB20 /* LimeBike TestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		387A57BE1F8EC70200D0CB20 /* LimeBike Test */ = {
+			isa = PBXGroup;
+			children = (
+				387A57BF1F8EC70200D0CB20 /* AppDelegate.swift */,
+				387A57C11F8EC70200D0CB20 /* ViewController.swift */,
+				387A57F01F8EC71E00D0CB20 /* Item Counter.swift */,
+				387A57C31F8EC70200D0CB20 /* Main.storyboard */,
+				387A57C91F8EC70200D0CB20 /* Assets.xcassets */,
+				387A57CB1F8EC70200D0CB20 /* LaunchScreen.storyboard */,
+				387A57CE1F8EC70200D0CB20 /* Info.plist */,
+				387A57C61F8EC70200D0CB20 /* LimeBike_Test.xcdatamodeld */,
+			);
+			path = "LimeBike Test";
+			sourceTree = "<group>";
+		};
+		387A57D61F8EC70200D0CB20 /* LimeBike TestTests */ = {
+			isa = PBXGroup;
+			children = (
+				387A57D71F8EC70200D0CB20 /* LimeBike_TestTests.swift */,
+				387A57D91F8EC70200D0CB20 /* Info.plist */,
+			);
+			path = "LimeBike TestTests";
+			sourceTree = "<group>";
+		};
+		387A57E11F8EC70200D0CB20 /* LimeBike TestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				387A57E21F8EC70200D0CB20 /* LimeBike_TestUITests.swift */,
+				387A57E41F8EC70200D0CB20 /* Info.plist */,
+			);
+			path = "LimeBike TestUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		387A57BB1F8EC70200D0CB20 /* LimeBike Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 387A57E71F8EC70200D0CB20 /* Build configuration list for PBXNativeTarget "LimeBike Test" */;
+			buildPhases = (
+				387A57B81F8EC70200D0CB20 /* Sources */,
+				387A57B91F8EC70200D0CB20 /* Frameworks */,
+				387A57BA1F8EC70200D0CB20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LimeBike Test";
+			productName = "LimeBike Test";
+			productReference = 387A57BC1F8EC70200D0CB20 /* LimeBike Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		387A57D21F8EC70200D0CB20 /* LimeBike TestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 387A57EA1F8EC70200D0CB20 /* Build configuration list for PBXNativeTarget "LimeBike TestTests" */;
+			buildPhases = (
+				387A57CF1F8EC70200D0CB20 /* Sources */,
+				387A57D01F8EC70200D0CB20 /* Frameworks */,
+				387A57D11F8EC70200D0CB20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				387A57D51F8EC70200D0CB20 /* PBXTargetDependency */,
+			);
+			name = "LimeBike TestTests";
+			productName = "LimeBike TestTests";
+			productReference = 387A57D31F8EC70200D0CB20 /* LimeBike TestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		387A57DD1F8EC70200D0CB20 /* LimeBike TestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 387A57ED1F8EC70200D0CB20 /* Build configuration list for PBXNativeTarget "LimeBike TestUITests" */;
+			buildPhases = (
+				387A57DA1F8EC70200D0CB20 /* Sources */,
+				387A57DB1F8EC70200D0CB20 /* Frameworks */,
+				387A57DC1F8EC70200D0CB20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				387A57E01F8EC70200D0CB20 /* PBXTargetDependency */,
+			);
+			name = "LimeBike TestUITests";
+			productName = "LimeBike TestUITests";
+			productReference = 387A57DE1F8EC70200D0CB20 /* LimeBike TestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		387A57B41F8EC70200D0CB20 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Kevin Largo";
+				TargetAttributes = {
+					387A57BB1F8EC70200D0CB20 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					387A57D21F8EC70200D0CB20 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 387A57BB1F8EC70200D0CB20;
+					};
+					387A57DD1F8EC70200D0CB20 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 387A57BB1F8EC70200D0CB20;
+					};
+				};
+			};
+			buildConfigurationList = 387A57B71F8EC70200D0CB20 /* Build configuration list for PBXProject "LimeBike Test" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 387A57B31F8EC70200D0CB20;
+			productRefGroup = 387A57BD1F8EC70200D0CB20 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				387A57BB1F8EC70200D0CB20 /* LimeBike Test */,
+				387A57D21F8EC70200D0CB20 /* LimeBike TestTests */,
+				387A57DD1F8EC70200D0CB20 /* LimeBike TestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		387A57BA1F8EC70200D0CB20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				387A57CD1F8EC70200D0CB20 /* LaunchScreen.storyboard in Resources */,
+				387A57CA1F8EC70200D0CB20 /* Assets.xcassets in Resources */,
+				387A57C51F8EC70200D0CB20 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		387A57D11F8EC70200D0CB20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		387A57DC1F8EC70200D0CB20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		387A57B81F8EC70200D0CB20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				387A57F11F8EC71E00D0CB20 /* Item Counter.swift in Sources */,
+				387A57C21F8EC70200D0CB20 /* ViewController.swift in Sources */,
+				387A57C81F8EC70200D0CB20 /* LimeBike_Test.xcdatamodeld in Sources */,
+				387A57C01F8EC70200D0CB20 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		387A57CF1F8EC70200D0CB20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				387A57D81F8EC70200D0CB20 /* LimeBike_TestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		387A57DA1F8EC70200D0CB20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				387A57E31F8EC70200D0CB20 /* LimeBike_TestUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		387A57D51F8EC70200D0CB20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 387A57BB1F8EC70200D0CB20 /* LimeBike Test */;
+			targetProxy = 387A57D41F8EC70200D0CB20 /* PBXContainerItemProxy */;
+		};
+		387A57E01F8EC70200D0CB20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 387A57BB1F8EC70200D0CB20 /* LimeBike Test */;
+			targetProxy = 387A57DF1F8EC70200D0CB20 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		387A57C31F8EC70200D0CB20 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				387A57C41F8EC70200D0CB20 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		387A57CB1F8EC70200D0CB20 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				387A57CC1F8EC70200D0CB20 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		387A57E51F8EC70200D0CB20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		387A57E61F8EC70200D0CB20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		387A57E81F8EC70200D0CB20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4NGAU6Y3VC;
+				INFOPLIST_FILE = "LimeBike Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krlargo.LimeBike-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		387A57E91F8EC70200D0CB20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4NGAU6Y3VC;
+				INFOPLIST_FILE = "LimeBike Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krlargo.LimeBike-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		387A57EB1F8EC70200D0CB20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4NGAU6Y3VC;
+				INFOPLIST_FILE = "LimeBike TestTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krlargo.LimeBike-TestTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LimeBike Test.app/LimeBike Test";
+			};
+			name = Debug;
+		};
+		387A57EC1F8EC70200D0CB20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4NGAU6Y3VC;
+				INFOPLIST_FILE = "LimeBike TestTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krlargo.LimeBike-TestTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LimeBike Test.app/LimeBike Test";
+			};
+			name = Release;
+		};
+		387A57EE1F8EC70200D0CB20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4NGAU6Y3VC;
+				INFOPLIST_FILE = "LimeBike TestUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krlargo.LimeBike-TestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "LimeBike Test";
+			};
+			name = Debug;
+		};
+		387A57EF1F8EC70200D0CB20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4NGAU6Y3VC;
+				INFOPLIST_FILE = "LimeBike TestUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krlargo.LimeBike-TestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "LimeBike Test";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		387A57B71F8EC70200D0CB20 /* Build configuration list for PBXProject "LimeBike Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				387A57E51F8EC70200D0CB20 /* Debug */,
+				387A57E61F8EC70200D0CB20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		387A57E71F8EC70200D0CB20 /* Build configuration list for PBXNativeTarget "LimeBike Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				387A57E81F8EC70200D0CB20 /* Debug */,
+				387A57E91F8EC70200D0CB20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		387A57EA1F8EC70200D0CB20 /* Build configuration list for PBXNativeTarget "LimeBike TestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				387A57EB1F8EC70200D0CB20 /* Debug */,
+				387A57EC1F8EC70200D0CB20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		387A57ED1F8EC70200D0CB20 /* Build configuration list for PBXNativeTarget "LimeBike TestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				387A57EE1F8EC70200D0CB20 /* Debug */,
+				387A57EF1F8EC70200D0CB20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		387A57C61F8EC70200D0CB20 /* LimeBike_Test.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				387A57C71F8EC70200D0CB20 /* LimeBike_Test.xcdatamodel */,
+			);
+			currentVersion = 387A57C71F8EC70200D0CB20 /* LimeBike_Test.xcdatamodel */;
+			path = LimeBike_Test.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 387A57B41F8EC70200D0CB20 /* Project object */;
+}

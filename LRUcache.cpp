@@ -1,179 +1,104 @@
 #include <iostream>
 #include <unordered_map>
-#include <algorithm>
 
 using namespace std;
 
-/*class Cache {
-	struct DoubleNode {
-		int value;
-		int key; //required for removal
-		DoubleNode* prev;
-		DoubleNode* next;
-
-		DoubleNode(int key, int value) {
-			this->key = key;
-			this->value = value;
-		}
-	};
-
-	DoubleNode* head;
-	DoubleNode* tail; //LRU
-
-public:
+struct Entry {
+  int value;
+  Entry* next;
+  Entry* prev;
+ 
+  Entry(int val) {
+    this->value = val;
+    this->next = NULL;
+    this->prev = NULL;
+  }
+};
+ 
+struct Cache {
+  Entry* LRU;
+  Entry* tail;
 	int capacity;
-	int count = 0;
-	unordered_map<int, DoubleNode*> hashtable;
+ 
+  unordered_map<int, Entry*> hashtable;	
+ 
+  Cache(int n) {
+    this->capacity = n;
+		LRU = NULL;
+    tail = NULL;
+  }
 
-	Cache(int capacity) {
-		this->capacity = capacity;
-	}
+  void update(int val) {
+    // if new element
+    if(hashtable.find(val) == hashtable.end()) {
+      Entry* newEntry = new Entry(val);
+			hashtable.insert(pair<int,Entry*>(val,newEntry));
+      
+      if(!tail) tail = newEntry;
+      else if(!tail->prev) tail->prev = newEntry;
 
-	//For sorting LRU
-	void moveToHead(DoubleNode* node) {
-		//remove from old location
-		if(node->next != NULL)
-			node->next->prev = node->prev;
-		if(node->prev != NULL)
-			node->prev->next = node->next;
+      // drop tail if oversized
+      if(hashtable.size() > capacity) {
+        Entry* oldTail = tail;
 
-		//make node into head
-		node->prev = NULL;
-		node->next = this->head;
-		this->head = node;
-	}
+        tail = tail->prev;
 
-	int get(int key) {
-		if(hashtable.find(key) != hashtable.end()) {
-			DoubleNode* node = hashtable.find(key)->second;
-			moveToHead(node);
-			return node->value;
-		}
+        hashtable.erase(oldTail->value);
 
-		return -1; //default error case
-	}
+        delete(oldTail);
+      }
 
-	void put(int key, int value) {
-		DoubleNode* node;
+      // attach new entry to head (LRU)
+      newEntry->next = LRU;
+      if(LRU)
+        LRU->prev = newEntry;
+			LRU = newEntry;
+    } else { //if old element
+      Entry* oldEntry = hashtable[val];
 
-		//if key found, update
-		if(hashtable.find(key) != hashtable.end()) {
-			node = hashtable.find(key)->second;
-			node->value = value; //update value
-		} else { //if not found, insert & increment
-			node = new DoubleNode(key, value);
-			hashtable.insert(pair<int, DoubleNode*>(key, node));
-			this->count++;
+      if(oldEntry->prev)
+        oldEntry->prev->next = oldEntry->next;
+      else
+        LRU = oldEntry->next;
+      if(oldEntry->next)
+        oldEntry->next->prev = oldEntry->prev;
+      else
+        tail = oldEntry->prev;
 
-			if(count == 2 && tail == NULL) {
-				tail = head; //first node becomes tail
-			}
-		}
-		moveToHead(node);
-		if(count > capacity) {
-			tail->prev->next = NULL;
-			tail->prev = NULL;
-			hashtable.erase(tail->key);
-			count--;
-		}
-	}
+      oldEntry->next = LRU;
+      oldEntry->prev = NULL;
+      
+      LRU = oldEntry;
+    }
+  }
+ 
+  void printEntries() {
+    Entry* currentEntry = LRU;
+    cout << "Entries: ";
+int count = 5;
+    while(currentEntry && count) {
+      cout << currentEntry->value << " ";
+      currentEntry = currentEntry->next;
+count--;
+    }
+    cout << endl;
+  }
 };
-*/
 
-class Cache {
-    struct DoublyLinkedNode {
-        DoublyLinkedNode* prev;
-        DoublyLinkedNode* next;
-        int key;
-        int value;
-        
-        DoublyLinkedNode(int key, int value) {
-            this->key = key;
-            this->value = value;
-        }
-    };
-    
-    DoublyLinkedNode* head;
-    DoublyLinkedNode* tail; //LRU
-    int capacity;
-    int count = 0;
-    
-    //<key, Node holding value>
-    unordered_map<int, DoublyLinkedNode*> hashtable;
-    
-public:
-    Cache(int capacity) {
-        this->capacity = capacity;
-    }
-    
-    void moveToHead(DoublyLinkedNode* node) {
-        if(node->prev != NULL)
-            node->prev->next = node->next;
-        if(node->next != NULL)
-            node->next->prev = node->prev;
-        
-        node->prev = NULL;
-        node->next = this->head;
-        
-        if(this->head != NULL)
-            this->head->prev = node;
-    
-        this->head = node;
-    }
-    
-    int get(int key) {
-        if(hashtable.find(key) != hashtable.end()) {
-            DoublyLinkedNode* node = hashtable.find(key)->second;
-            moveToHead(node);
-            return node->value;
-        }
-        
-        return -1;
-    }
-    
-    void put(int key, int value) {
-        DoublyLinkedNode* node;
-        if(hashtable.find(key) == hashtable.end()) { //not in hashtable
-            node = new DoublyLinkedNode(key, value);
-            hashtable.insert(pair<int, DoublyLinkedNode*>(key, node));
-        } else { //update if already in table
-            node = hashtable.find(key)->second;
-            node->value = value;
-            
-            //update tail
-            if(this->tail == node) //if this node is current tail
-                this->tail = node->prev; //prev node becomes new tail
-            
-            this->count++;
-        }
-        
-        moveToHead(node);
-        
-        if(this->count == 2)
-            this->tail = node->next;
-            
-        if(count > capacity) {
-            hashtable.erase(tail->key);
-            this->tail->prev->next = NULL;
-            this->tail = tail->prev;
-        }
-    }
-};
 
 int main(int argv, char** argc) {
-	Cache* cache = new Cache(2);
+  cout << "Cache size? ";
+  int size;
+  cin >> size;
+  Cache* cache = new Cache(size);
 
-	cout << "cache.put(1,1)" << endl;
-	cache->put(1, 1);
-	cout << "cache.put(2,2)" << endl;
-	cache->put(2, 2);
-	cout << "cache.get(1): " << cache->get(1) << endl;
-	cout << "cache.put(3,3)" << endl;
-	cache->put(3, 3);
-	cout << "cache.get(2): " << cache->get(2) << endl;	
-	cout << "cache.put(4,4)" << endl;
-	cache->put(4, 4);
-	cout << "cache.get(1): " << cache->get(1) << endl;
-	cout << "cache.get(3): " << cache->get(3) << endl;
-	cout << "cache.get(4): " << cache->get(4) << endl;
+  int input;
+  while(true) {
+    cout << "value: ";
+    cin >> input;
+		if(!input) return 0;
+
+    cache->update(input);
+    cache->printEntries();
+  }
 }
